@@ -12,6 +12,7 @@ import torch
 from .prompts import build_messages
 
 STOPS = ["</search>", "</answer>"]
+_SCHEDULES = {"answer": ["<answer>"], "search": [None, "<search>"]}
 SEARCH_RE = re.compile(r"<search>(.*?)</search>", re.S)
 ANSWER_RE = re.compile(r"<answer>(.*?)</answer>", re.S)
 
@@ -26,7 +27,7 @@ class Episode:
     answer: str = None
     done: bool = False
     transcript: list = field(default_factory=list)
-    force: str = None   # None | "answer" | "search"  (training-time exploration)
+    force: object = None  # None | "answer" | "search" | list of per-turn openers
     turn: int = 0
     prefix: str = ""    # forced action opener for the current turn
 
@@ -69,9 +70,12 @@ def rollout(model, tok, retriever, questions, lams, max_calls=4, max_new_tokens=
     """prefill_search: start every episode with one search for the raw question
     already done (the rag1 baseline), counted against the budget.
 
-    forces: optional per-episode forced branch for exploration during training.
+    forces: optional per-episode forced openers, one entry per episode.
       "answer"  the first turn opens with <answer> (answer without searching)
       "search"  the turn after the first result opens with <search> (search again)
+      a list    an explicit per-turn schedule of openers ("<search>", "<answer>"
+                or None for a free turn), e.g. ["<search>"] * k + ["<answer>"]
+                makes the agent search exactly k times with its own queries.
     The opener tokens are kept with mask 1, i.e. trained on as an (off-policy)
     action, so the search-or-answer decision itself receives the advantage."""
     eps = []
@@ -93,8 +97,9 @@ def rollout(model, tok, retriever, questions, lams, max_calls=4, max_new_tokens=
             break
         for e in active:
             e.prefix = ""
-            if (e.force == "answer" and e.turn == 0) or                (e.force == "search" and e.turn == 1 and e.n_search == 1):
-                e.prefix = "<answer>" if e.force == "answer" else "<search>"
+            schedule = _SCHEDULES.get(e.force, e.force) if isinstance(e.force, str) else e.force
+            if schedule and e.turn < len(schedule) and schedule[e.turn]:
+                e.prefix = schedule[e.turn]
                 t = tok(e.prefix, add_special_tokens=False).input_ids
                 e.ids += t
                 e.mask += [1] * len(t)
