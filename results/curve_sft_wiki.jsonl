@@ -1,0 +1,5 @@
+{"method": "trained", "adapter": "runs/sft_wiki", "init_adapter": null, "corpus": "wiki", "n": 200, "max_calls": 3, "lam": 0.0, "em": 0.21, "f1": 0.3099248043623043, "searches": 2.54, "utility": 0.3099248043623043, "no_answer": 0.0}
+{"method": "trained", "adapter": "runs/sft_wiki", "init_adapter": null, "corpus": "wiki", "n": 200, "max_calls": 3, "lam": 0.05, "em": 0.18, "f1": 0.2787253968253968, "searches": 1.585, "utility": 0.19947539682539683, "no_answer": 0.0}
+{"method": "trained", "adapter": "runs/sft_wiki", "init_adapter": null, "corpus": "wiki", "n": 200, "max_calls": 3, "lam": 0.1, "em": 0.18, "f1": 0.27387557997557993, "searches": 1.125, "utility": 0.16137557997557994, "no_answer": 0.0}
+{"method": "trained", "adapter": "runs/sft_wiki", "init_adapter": null, "corpus": "wiki", "n": 200, "max_calls": 3, "lam": 0.2, "em": 0.095, "f1": 0.14571350762527233, "searches": 0.0, "utility": 0.14571350762527233, "no_answer": 0.0}
+{"method": "trained", "adapter": "runs/sft_wiki", "init_adapter": null, "corpus": "wiki", "n": 200, "max_calls": 3, "lam": 0.3, "em": 0.09, "f1": 0.13821350762527232, "searches": 0.0, "utility": 0.13821350762527232, "no_answer": 0.0}

@@ -2,7 +2,7 @@
 
 A small search agent that is told what each search costs and adjusts how much it searches. One model, one prompt field `Search cost: λ per search`: when searching is cheap it searches more to get the answer right, when it is expensive it answers from memory. Built on Qwen3-1.7B with LoRA on a single RTX 4080 (16 GB).
 
-> Status: work in progress. The SFT cold start works and is reported below; the GRPO stage is being piloted. The full development log, including every bug and wrong turn, is in [DEVLOG.md](DEVLOG.md) (Chinese). Related work and how this setup compares to it are in [RELATED_WORK.md](RELATED_WORK.md).
+> Status: the price-conditioned SFT model is the current main result. Two GRPO pilots on top of it did not beat it (details below). The full development log, including every bug and wrong turn, is in [DEVLOG.md](DEVLOG.md) (Chinese). Related work and how this setup compares to it are in [RELATED_WORK.md](RELATED_WORK.md).
 
 ## Task
 
@@ -27,15 +27,35 @@ So the best *fixed* number of searches depends on the price: 3 at λ=0, 2 at 0.0
 - **Data.** For 2000 other training questions, generate the four forced-k trajectories. For each price, imitate the one with the highest `F1 − λk`. Questions no k can answer take the price's default k. Trajectories with repeated queries are never targets.
 - **Loss.** Wrong answers are masked out of the loss, so the model learns *when* to answer, not wrong facts.
 
-Evaluated on 200 held-out dev questions, greedy decoding:
+Evaluated on 200 held-out dev questions (5.23 M-passage corpus, max 3 searches, greedy decoding):
 
-| λ | untrained: F1 / searches / utility | SFT: F1 / searches / utility |
+![curves](results/curve_wiki.png)
+
+| λ | untrained: searches / utility | SFT: F1 / searches / utility | gain |
+|---|---|---|---|
+| 0 | 1.19 / 0.258 | 0.310 / 2.54 / **0.310** | +0.052 |
+| 0.05 | 1.29 / 0.185 | 0.279 / 1.58 / **0.199** | +0.014 |
+| 0.1 | 1.26 / 0.120 | 0.274 / 1.12 / **0.161** | +0.041 |
+| 0.2 | 1.25 / 0.011 | 0.146 / 0.00 / **0.146** | +0.135 |
+| 0.3 | 1.25 / −0.119 | 0.138 / 0.00 / **0.138** | +0.257 |
+
+For reference, never searching gets F1 0.121.
+
+- **Criteria.** The pass/fail criteria for this step were written down before the run (DEVLOG §6.6), and all were met.
+- **What changed.** One model now moves along the cost/accuracy curve when only the price in its prompt changes. The untrained model searches about 1.25 times whatever the price.
+- **What SFT did not learn.** It learned mostly a price → search-count mapping, not per-question judgement. At λ ≥ 0.2 it never searches.
+- **Caveat.** These are single-seed results on 200 questions, without confidence intervals yet.
+
+## GRPO on top of SFT: two pre-registered pilots, neither passed
+
+The pass criterion was +0.02 mean utility over SFT across λ ∈ {0, 0.1, 0.3}, with no price worse by more than 0.01. Both pilots ran 40 steps with 16 questions × 8 rollouts per step and a KL penalty to the SFT model.
+
+| pilot | setting | result |
 |---|---|---|
-| 0 | 0.258 / 1.19 / 0.258 | **0.310** / 2.54 / **0.310** |
-| 0.1 | 0.246 / 1.27 / 0.120 | 0.274 / 1.13 / **0.161** |
-| 0.3 | 0.257 / 1.26 / −0.119 | 0.138 / 0.00 / **0.138** |
+| 1 | lr 1e-5, KL 0.001 (the literature's value) | Collapsed to *never search* at every price, including λ=0 where searching is free. Mean utility 0.136 / 0.165 at steps 20 / 40 vs 0.203 for SFT. |
+| 2 | lr 2e-6, KL 0.05 | Stable for 20 steps. At step 20 it searched less at λ=0.1 (1.13 → 0.76) and gained a little utility, +0.005 on average, below the bar. By step 40 it drifted towards not searching again. |
 
-The pass/fail criteria for this step were written down before the run (DEVLOG §6.6) and all were met. The search count now follows the price (2.54 → 1.13 → 0). What SFT learned is mostly a price-to-search-count mapping, not per-question judgement: at λ=0.3 it never searches. Whether RL can add per-question judgement on top is what the current pilot tests.
+Why: with this 1.7B model, "searched and still wrong" is common. Under the additive reward it costs −λk, while "did not search and wrong" costs 0, so GRPO keeps pushing towards not searching. OTC-PO reports the same failure for additive efficiency rewards. The next thing to try is their correctness-gated efficiency reward, with larger batches.
 
 ## Lessons recorded along the way
 
