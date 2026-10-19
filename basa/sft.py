@@ -33,6 +33,10 @@ FIXED_BEST = {0.0: 3, 0.05: 2, 0.1: 1, 0.2: 0, 0.3: 0}  # wiki-corpus diagnostic
 
 def choose_k(by_k, lam):
     ok = [k for k, t in by_k.items() if not t["repeat"]]
+    if max(by_k[k]["f1"] for k in ok) == 0:
+        # no k answers it: F1 - lambda*k would always pick k=0 here, teaching the
+        # model to give up even when searching is cheap; use the price's default
+        return min(ok, key=lambda k: (abs(k - FIXED_BEST[lam]), k))
     u = {k: by_k[k]["f1"] - lam * k for k in ok}
     top = max(u.values())
     best = [k for k in ok if u[k] >= top - 1e-9]
