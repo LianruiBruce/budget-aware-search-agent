@@ -1,0 +1,7 @@
+{"method": "no_search", "adapter": null, "lam": 0.0, "em": 0.088, "f1": 0.13320930180930177, "searches": 0.0, "utility": 0.13320930180930177, "no_answer": 0.0}
+{"method": "rag1", "adapter": null, "lam": 0.0, "em": 0.236, "f1": 0.3428809087960322, "searches": 1.0, "utility": 0.3428809087960322, "no_answer": 0.006}
+{"method": "react", "adapter": null, "lam": 0.0, "em": 0.202, "f1": 0.2931672345731254, "searches": 1.152, "utility": 0.2931672345731254, "no_answer": 0.004}
+{"method": "react", "adapter": null, "lam": 0.05, "em": 0.21, "f1": 0.304623697639116, "searches": 1.294, "utility": 0.239923697639116, "no_answer": 0.018}
+{"method": "react", "adapter": null, "lam": 0.1, "em": 0.212, "f1": 0.3078889513396638, "searches": 1.23, "utility": 0.18488895133966382, "no_answer": 0.024}
+{"method": "react", "adapter": null, "lam": 0.2, "em": 0.2, "f1": 0.29207686342757594, "searches": 1.194, "utility": 0.05327686342757593, "no_answer": 0.016}
+{"method": "react", "adapter": null, "lam": 0.3, "em": 0.198, "f1": 0.29094800778709234, "searches": 1.192, "utility": -0.06665199221290763, "no_answer": 0.016}
