@@ -97,6 +97,8 @@ def main():
                     help="SFT adapter merged into the weights before RL; it also becomes the "
                          "KL reference, since the reference is the model with the RL adapter off")
     ap.add_argument("--corpus", default="small", choices=["small", "wiki"])
+    ap.add_argument("--reward", default="additive", choices=["additive", "scaled"],
+                    help="scaled = F1 * (1 - lambda*k): search cost only when correct")
     ap.add_argument("--rollout_bs", type=int, default=24,
                     help="generation batch; 12 keeps 3-search contexts inside 16 GB")
     ap.add_argument("--q_start", type=int, default=0,
@@ -143,7 +145,8 @@ def main():
                         + [None] * (args.group - args.force_answer - args.force_search))
         eps = rollout(model, tok, retriever, batch_q, batch_l, max_calls=args.max_calls,
                       forces=group_forces * args.q_per_step, batch_size=args.rollout_bs)
-        rewards = [episode_reward(e.answer, e.q["answer"], e.n_search, e.lam) for e in eps]
+        rewards = [episode_reward(e.answer, e.q["answer"], e.n_search, e.lam, mode=args.reward)
+                   for e in eps]
 
         # group-normalized advantages; groups with no reward spread carry no signal
         keep_eps, advs = [], []
@@ -171,6 +174,8 @@ def main():
         f1s = [f1_score(e.answer or "", e.q["answer"]) for e in eps]
         rec = {
             "step": step, "loss": loss, "kl": kl, "reward": sum(rewards) / len(rewards),
+            "utility": sum(f1_score(e.answer or "", e.q["answer"]) - e.lam * e.n_search
+                           for e in eps) / len(eps),
             "search_hist": {str(k): sum(e.n_search == k for e in eps)
                             for k in range(args.max_calls + 1)},
             "f1": sum(f1s) / len(f1s),

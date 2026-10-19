@@ -30,11 +30,19 @@ def f1_score(pred: str, gold: str) -> float:
 
 
 def episode_reward(answer, gold: str, n_search: int, lam: float,
-                   format_penalty: float = 0.1) -> float:
-    """F1 of the final answer minus the per-call search cost.
+                   format_penalty: float = 0.1, mode: str = "additive") -> float:
+    """Training reward for one episode.
+
+    additive  F1 - lambda * searches: the true utility; failed searches cost too
+    scaled    F1 * (1 - lambda * searches): the cost only bites when the answer
+              is right (OTC-PO-style), so failed searches are not punished
 
     `answer is None` means the episode ended without an <answer> tag
     (ran out of turns or broke the format)."""
+    if mode == "scaled":
+        if answer is None:
+            return -format_penalty
+        return f1_score(answer, gold) * (1 - lam * n_search)
     if answer is None:
         return -format_penalty - lam * n_search
     return f1_score(answer, gold) - lam * n_search
