@@ -48,7 +48,7 @@ For reference, never searching gets F1 0.121.
 - **What SFT did not learn.** It learned mostly a price → search-count mapping, not per-question judgement. At λ ≥ 0.2 it never searches.
 - **Caveat.** These are single-seed results on 200 questions.
 
-## GRPO on top of SFT: two pre-registered pilots, neither passed
+## GRPO on top of SFT: three pre-registered pilots, none passed
 
 The pass criterion was +0.02 mean utility over SFT across λ ∈ {0, 0.1, 0.3}, with no price worse by more than 0.01. Both pilots ran 40 steps with 16 questions × 8 rollouts per step and a KL penalty to the SFT model.
 
@@ -56,8 +56,9 @@ The pass criterion was +0.02 mean utility over SFT across λ ∈ {0, 0.1, 0.3}, 
 |---|---|---|
 | 1 | lr 1e-5, KL 0.001 (the literature's value) | Collapsed to *never search* at every price, including λ=0 where searching is free. Mean utility 0.136 / 0.165 at steps 20 / 40 vs 0.203 for SFT. |
 | 2 | lr 2e-6, KL 0.05 | Stable for 20 steps. At step 20 it searched less at λ=0.1 (1.13 → 0.76) and gained a little utility, +0.005 on average, below the bar. By step 40 it drifted towards not searching again. |
+| 3 | as 2, but training reward F1·(1 − λk): the cost only counts when the answer is right (OTC-PO-style) | Never collapsed. At step 40 it scored +0.007 on average, below the bar. The only significant change is at λ=0: +0.017 utility, 95% CI [+0.002, +0.035], at an unchanged search count. Better answers after searching, not better cost sensitivity. |
 
-Why: with this 1.7B model, "searched and still wrong" is common. Under the additive reward it costs −λk, while "did not search and wrong" costs 0, so GRPO keeps pushing towards not searching. OTC-PO reports the same failure for additive efficiency rewards. Against SFT, pilot 2 at step 20 is within noise at every price: the largest gain is +0.011, with a 95% CI of [−0.016, +0.036]. The next thing to try is their correctness-gated efficiency reward, with larger batches.
+Why: with this 1.7B model, "searched and still wrong" is common. Under the additive reward it costs −λk, while "did not search and wrong" costs 0, so GRPO keeps pushing towards not searching. OTC-PO reports the same failure for additive efficiency rewards. Against SFT, pilot 2 at step 20 is within noise at every price: the largest gain is +0.011, with a 95% CI of [−0.016, +0.036]. Pilot 3 tested the fix: charging the cost only on correct answers removed the collapse, as OTC-PO and IKEA report, but 40 steps at this scale did not buy per-question cost sensitivity. Next steps would be the pilot 3 setup for more steps and larger batches, and a larger evaluation set with several seeds.
 
 ## Lessons recorded along the way
 

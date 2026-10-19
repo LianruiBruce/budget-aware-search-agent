@@ -1,0 +1,119 @@
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking filmography</search>
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] Hosking: Hosking is a surname. Notable people with the surname include:</result>
+<search>Michael St. Michaels</search>
+
+<result>[1] St. Michael's School: St. Michael's School or St. Michael School may refer to:
+[2] Fort St. Michael (disambiguation): Fort St. Michael was a US Army installation in St. Michael, Alaska.
+[3] SM St. Michael, Penampang: St. Michael's Secondary School, Penampang ("Malay: Sekolah Menengah St. Michael (SMSM), Penampang") commonly known as SM St. Michael is a secondary school in Penampang, Sabah, Malaysia. It was named after Saint Michael the Archangel.</result>
+<search>Legion actor</search>
+
+
+<result>[1] Third Legion: The Third Legion can refer any of these Roman Legions:
+[2] Danube Legion: The Danube Legion (Polish: "Legia Naddunajska" ; or the Rhine Legion - French: "Legion du Rhine" ) was a unit of Poles in the service of Napoleonic France. It was also known as the 3rd Polish Legion.
+[3] Legion of Light Troops: The Legion of Light Troops, also known as the Light Legion or Legion of Alorna was military unit in the Portuguese Army, created in August 1796.</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking</search>
+
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] Hosking: Hosking is a surname. Notable people with the surname include:</result>
+<search>Michael St. Michaels</search>
+
+<result>[1] St. Michael's School: St. Michael's School or St. Michael School may refer to:
+[2] Fort St. Michael (disambiguation): Fort St. Michael was a US Army installation in St. Michael, Alaska.
+[3] SM St. Michael, Penampang: St. Michael's Secondary School, Penampang ("Malay: Sekolah Menengah St. Michael (SMSM), Penampang") commonly known as SM St. Michael is a secondary school in Penampang, Sabah, Malaysia. It was named after Saint Michael the Archangel.</result>
+<search>Legion</search>
+
+
+<result>[1] Third Legion: The Third Legion can refer any of these Roman Legions:
+[2] Danube Legion: The Danube Legion (Polish: "Legia Naddunajska" ; or the Rhine Legion - French: "Legion du Rhine" ) was a unit of Poles in the service of Napoleonic France. It was also known as the 3rd Polish Legion.
+[3] Legion of Light Troops: The Legion of Light Troops, also known as the Light Legion or Legion of Alorna was military unit in the Portuguese Army, created in August 1796.</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking films</search>
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] An Evening with Beverly Luff Linn: An Evening with Beverly Luff Linn is an upcoming American comedy film directed by Jim Hosking. It stars Aubrey Plaza, Jemaine Clement and Emile Hirsch.</result>
+<search>Legion actor</search>
+
+<result>[1] Third Legion: The Third Legion can refer any of these Roman Legions:
+[2] Danube Legion: The Danube Legion (Polish: "Legia Naddunajska" ; or the Rhine Legion - French: "Legion du Rhine" ) was a unit of Poles in the service of Napoleonic France. It was also known as the 3rd Polish Legion.
+[3] Legion of Light Troops: The Legion of Light Troops, also known as the Light Legion or Legion of Alorna was military unit in the Portuguese Army, created in August 1796.</result>
+<answer>Abdoulaye NGom</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking</search>
+
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] Hosking: Hosking is a surname. Notable people with the surname include:</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Actor from Parks and Recreation and Legion who is directed by Jim Hosking</search>
+<result>[1] Peter Hosking (actor): Peter Hosking (born 19 December 1947) is an Australian actor and audiobook narrator.
+[2] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[3] Legion State Park: Legion State Park is public recreation area located on the north edge of the city of Louisville, Mississippi, and adjacent to Tombigbee National Forest. As Legion State Park Historic District, the state park entered the National Register of Historic Places in 1998. It is managed by the Mississippi Department of Wildlife, Fisheries and Parks.</result>
+<search>Actor from Parks and Recreation and Legion who is directed by Jim Hosking</search>
+
+<result>[1] Peter Hosking (actor): Peter Hosking (born 19 December 1947) is an Australian actor and audiobook narrator.
+[2] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[3] Legion State Park: Legion State Park is public recreation area located on the north edge of the city of Louisville, Mississippi, and adjacent to Tombigbee National Forest. As Legion State Park Historic District, the state park entered the National Register of Historic Places in 1998. It is managed by the Mississippi Department of Wildlife, Fisheries and Parks.</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking films</search>
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] An Evening with Beverly Luff Linn: An Evening with Beverly Luff Linn is an upcoming American comedy film directed by Jim Hosking. It stars Aubrey Plaza, Jemaine Clement and Emile Hirsch.</result>
+<search>Actor in An Evening with Beverly Luff Linn</search>
+
+<result>[1] An Evening with Beverly Luff Linn: An Evening with Beverly Luff Linn is an upcoming American comedy film directed by Jim Hosking. It stars Aubrey Plaza, Jemaine Clement and Emile Hirsch.
+[2] Beverly Depot, Iowa: Beverly Depot is an unincorporated community in Linn County, in the U.S. state of Iowa.
+[3] Luffness Castle: Luffness Castle, sometimes known as Luffness House or Aberlady Castle, is a castle of 13th-century origin in Luffness, not far from Aberlady, in East Lothian, Scotland. The castle is historically part of the entail of the Earls of Hopetoun.</result>
+<answer>Abdoulaye NGom</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking</search>
+
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] Hosking: Hosking is a surname. Notable people with the surname include:</result>
+<search>Michael St. Michaels</search>
+
+<result>[1] St. Michael's School: St. Michael's School or St. Michael School may refer to:
+[2] Fort St. Michael (disambiguation): Fort St. Michael was a US Army installation in St. Michael, Alaska.
+[3] SM St. Michael, Penampang: St. Michael's Secondary School, Penampang ("Malay: Sekolah Menengah St. Michael (SMSM), Penampang") commonly known as SM St. Michael is a secondary school in Penampang, Sabah, Malaysia. It was named after Saint Michael the Archangel.</result>
+<search>Legion</search>
+
+
+<result>[1] Third Legion: The Third Legion can refer any of these Roman Legions:
+[2] Danube Legion: The Danube Legion (Polish: "Legia Naddunajska" ; or the Rhine Legion - French: "Legion du Rhine" ) was a unit of Poles in the service of Napoleonic France. It was also known as the 3rd Polish Legion.
+[3] Legion of Light Troops: The Legion of Light Troops, also known as the Light Legion or Legion of Alorna was military unit in the Portuguese Army, created in August 1796.</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking</search>
+
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] Hosking: Hosking is a surname. Notable people with the surname include:</result>
+<search>Michael St. Michaels</search>
+
+<result>[1] St. Michael's School: St. Michael's School or St. Michael School may refer to:
+[2] Fort St. Michael (disambiguation): Fort St. Michael was a US Army installation in St. Michael, Alaska.
+[3] SM St. Michael, Penampang: St. Michael's Secondary School, Penampang ("Malay: Sekolah Menengah St. Michael (SMSM), Penampang") commonly known as SM St. Michael is a secondary school in Penampang, Sabah, Malaysia. It was named after Saint Michael the Archangel.</result>
+<search>Legion (TV series)</search>
+
+
+<result>[1] Legion (TV series): Legion is an American cable television series created for FX by Noah Hawley, based on the Marvel Comics character David Haller / Legion. It is connected to the "X-Men" film series, the first television series to be so, and is produced by FX Productions in association with Marvel Television. Hawley serves as showrunner on the series.
+[2] Legion of Super Heroes in the 31st Century: Legion of Super-Heroes in the 31st Century is a DC Comics comic book based on the Warner Bros. Animation-produced TV series "Legion of Super-Heroes" airing since fall 2006 on The CW, which in turn is based on the original DC super-team of the same name appearing in various DC titles since 1958. The comic is set in the DC Animated Universe as opposed to the mainstream DC Comics Universe, in which t...
+[3] Legion of Fire: Killer Ants!: Legion of Fire: Killer Ants! (alternatively titled "Marabunta") is a 1998 made for TV horror movie, made for the Fox TV channel.</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
