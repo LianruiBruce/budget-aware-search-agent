@@ -37,6 +37,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="Qwen/Qwen3-1.7B")
     ap.add_argument("--adapter", default=None)
+    ap.add_argument("--init_adapter", default=None,
+                    help="adapter merged into the weights first (the SFT model an RL adapter sits on)")
     ap.add_argument("--methods", default="no_search,rag1,react")
     ap.add_argument("--lams", default="0,0.05,0.1,0.2,0.3")
     ap.add_argument("--n", type=int, default=500)
@@ -54,6 +56,8 @@ def main():
         ret = BM25Retriever(corpus)
     tok = AutoTokenizer.from_pretrained(args.model)
     model = AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16).cuda().eval()
+    if args.init_adapter:
+        model = PeftModel.from_pretrained(model, args.init_adapter).merge_and_unload()
     if args.adapter:
         model = PeftModel.from_pretrained(model, args.adapter).eval()
     lams = [float(x) for x in args.lams.split(",")]
@@ -61,7 +65,7 @@ def main():
     f = open(args.out, "a", encoding="utf-8")
 
     def emit(method, rec):
-        rec = {"method": method, "adapter": args.adapter, "corpus": args.corpus, "n": len(dev),
+        rec = {"method": method, "adapter": args.adapter, "init_adapter": args.init_adapter, "corpus": args.corpus, "n": len(dev),
                "max_calls": args.max_calls, **rec}
         print(json.dumps(rec), flush=True)
         f.write(json.dumps(rec) + "\n")

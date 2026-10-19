@@ -97,6 +97,8 @@ def main():
                     help="SFT adapter merged into the weights before RL; it also becomes the "
                          "KL reference, since the reference is the model with the RL adapter off")
     ap.add_argument("--corpus", default="small", choices=["small", "wiki"])
+    ap.add_argument("--rollout_bs", type=int, default=24,
+                    help="generation batch; 12 keeps 3-search contexts inside 16 GB")
     ap.add_argument("--q_start", type=int, default=0,
                     help="use training questions from this index on (skip SFT / diagnostic ones)")
     args = ap.parse_args()
@@ -140,7 +142,7 @@ def main():
         group_forces = (["answer"] * args.force_answer + ["search"] * args.force_search
                         + [None] * (args.group - args.force_answer - args.force_search))
         eps = rollout(model, tok, retriever, batch_q, batch_l, max_calls=args.max_calls,
-                      forces=group_forces * args.q_per_step)
+                      forces=group_forces * args.q_per_step, batch_size=args.rollout_bs)
         rewards = [episode_reward(e.answer, e.q["answer"], e.n_search, e.lam) for e in eps]
 
         # group-normalized advantages; groups with no reward spread carry no signal

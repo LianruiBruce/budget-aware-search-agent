@@ -3,3 +3,6 @@ __pycache__/
 cache/
 runs/*/step*/adapter_model.safetensors
 *.log
+runs/*/adapter_model.safetensors
+runs/*/README.md
+runs/basa_qwen3_1.7b/
