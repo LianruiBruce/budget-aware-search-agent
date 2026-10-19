@@ -31,20 +31,22 @@ Evaluated on 200 held-out dev questions (5.23 M-passage corpus, max 3 searches, 
 
 ![curves](results/curve_wiki.png)
 
-| λ | untrained: searches / utility | SFT: F1 / searches / utility | gain |
+| λ | untrained: searches / utility | SFT: F1 / searches / utility | gain [95% CI] |
 |---|---|---|---|
-| 0 | 1.19 / 0.258 | 0.310 / 2.54 / **0.310** | +0.052 |
-| 0.05 | 1.29 / 0.185 | 0.279 / 1.58 / **0.199** | +0.014 |
-| 0.1 | 1.26 / 0.120 | 0.274 / 1.12 / **0.161** | +0.041 |
-| 0.2 | 1.25 / 0.011 | 0.146 / 0.00 / **0.146** | +0.135 |
-| 0.3 | 1.25 / −0.119 | 0.138 / 0.00 / **0.138** | +0.257 |
+| 0 | 1.19 / 0.258 | 0.310 / 2.54 / **0.310** | +0.052 [+0.011, +0.094] |
+| 0.05 | 1.29 / 0.185 | 0.279 / 1.58 / **0.199** | +0.014 [−0.021, +0.051] |
+| 0.1 | 1.26 / 0.120 | 0.274 / 1.12 / **0.161** | +0.042 [+0.009, +0.075] |
+| 0.2 | 1.25 / 0.011 | 0.146 / 0.00 / **0.146** | +0.135 [+0.080, +0.189] |
+| 0.3 | 1.25 / −0.119 | 0.138 / 0.00 / **0.138** | +0.258 [+0.199, +0.316] |
+
+The intervals are paired bootstrap 95% CIs over the 200 questions (`scripts/compare.py`). The gain is significant at every price except λ=0.05.
 
 For reference, never searching gets F1 0.121.
 
 - **Criteria.** The pass/fail criteria for this step were written down before the run (DEVLOG §6.6), and all were met.
 - **What changed.** One model now moves along the cost/accuracy curve when only the price in its prompt changes. The untrained model searches about 1.25 times whatever the price.
 - **What SFT did not learn.** It learned mostly a price → search-count mapping, not per-question judgement. At λ ≥ 0.2 it never searches.
-- **Caveat.** These are single-seed results on 200 questions, without confidence intervals yet.
+- **Caveat.** These are single-seed results on 200 questions.
 
 ## GRPO on top of SFT: two pre-registered pilots, neither passed
 
@@ -55,7 +57,7 @@ The pass criterion was +0.02 mean utility over SFT across λ ∈ {0, 0.1, 0.3}, 
 | 1 | lr 1e-5, KL 0.001 (the literature's value) | Collapsed to *never search* at every price, including λ=0 where searching is free. Mean utility 0.136 / 0.165 at steps 20 / 40 vs 0.203 for SFT. |
 | 2 | lr 2e-6, KL 0.05 | Stable for 20 steps. At step 20 it searched less at λ=0.1 (1.13 → 0.76) and gained a little utility, +0.005 on average, below the bar. By step 40 it drifted towards not searching again. |
 
-Why: with this 1.7B model, "searched and still wrong" is common. Under the additive reward it costs −λk, while "did not search and wrong" costs 0, so GRPO keeps pushing towards not searching. OTC-PO reports the same failure for additive efficiency rewards. The next thing to try is their correctness-gated efficiency reward, with larger batches.
+Why: with this 1.7B model, "searched and still wrong" is common. Under the additive reward it costs −λk, while "did not search and wrong" costs 0, so GRPO keeps pushing towards not searching. OTC-PO reports the same failure for additive efficiency rewards. Against SFT, pilot 2 at step 20 is within noise at every price: the largest gain is +0.011, with a 95% CI of [−0.016, +0.036]. The next thing to try is their correctness-gated efficiency reward, with larger batches.
 
 ## Lessons recorded along the way
 

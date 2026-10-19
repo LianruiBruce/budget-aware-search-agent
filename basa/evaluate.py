@@ -30,7 +30,10 @@ def summarize(eps, lam):
     em = sum(exact_match(e.answer or "", e.q["answer"]) for e in eps) / n
     s = sum(e.n_search for e in eps) / n
     return {"lam": lam, "em": em, "f1": f1, "searches": s, "utility": f1 - lam * s,
-            "no_answer": sum(e.answer is None for e in eps) / n}
+            "no_answer": sum(e.answer is None for e in eps) / n,
+            # per question [id, F1, searches], for paired bootstrap comparisons
+            "per_q": [[e.q["id"], round(f1_score(e.answer or "", e.q["answer"]), 4), e.n_search]
+                      for e in eps]}
 
 
 def main():
