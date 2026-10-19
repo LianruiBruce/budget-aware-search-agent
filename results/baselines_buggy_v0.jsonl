@@ -1,0 +1,7 @@
+{"method": "no_search", "adapter": null, "lam": 0.0, "em": 0.002, "f1": 0.002, "searches": 0.0, "utility": 0.002, "no_answer": 0.998}
+{"method": "rag1", "adapter": null, "lam": 0.0, "em": 0.002, "f1": 0.002, "searches": 1.0, "utility": 0.002, "no_answer": 0.992}
+{"method": "react", "adapter": null, "lam": 0.0, "em": 0.202, "f1": 0.291833901239792, "searches": 1.152, "utility": 0.291833901239792, "no_answer": 0.01}
+{"method": "react", "adapter": null, "lam": 0.05, "em": 0.208, "f1": 0.30129036430578265, "searches": 1.294, "utility": 0.23659036430578265, "no_answer": 0.032}
+{"method": "react", "adapter": null, "lam": 0.1, "em": 0.212, "f1": 0.3078889513396638, "searches": 1.23, "utility": 0.18488895133966382, "no_answer": 0.03}
+{"method": "react", "adapter": null, "lam": 0.2, "em": 0.2, "f1": 0.29207686342757594, "searches": 1.194, "utility": 0.05327686342757593, "no_answer": 0.02}
+{"method": "react", "adapter": null, "lam": 0.3, "em": 0.198, "f1": 0.29094800778709234, "searches": 1.192, "utility": -0.06665199221290763, "no_answer": 0.022}
