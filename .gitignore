@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+cache/
+runs/*/step*/adapter_model.safetensors
+*.log

@@ -1,0 +1,8 @@
+torch>=2.6
+transformers>=4.51
+peft>=0.15
+datasets>=3.0
+accelerate
+bm25s
+PyStemmer
+matplotlib
