@@ -1,0 +1,45 @@
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking films</search>
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] An Evening with Beverly Luff Linn: An Evening with Beverly Luff Linn is an upcoming American comedy film directed by Jim Hosking. It stars Aubrey Plaza, Jemaine Clement and Emile Hirsch.</result>
+<answer>Abdoulaye NGom</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<answer>Scott Wilson</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>actor from Parks and Recreation and Legion who will star in an upcoming American comedy film directed by Jim Hosking</search>
+<result>[1] An Evening with Beverly Luff Linn: An Evening with Beverly Luff Linn is an upcoming American comedy film directed by Jim Hosking. It stars Aubrey Plaza, Jemaine Clement and Emile Hirsch.
+[2] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[3] Duck Duck Goose (film): Duck Duck Goose is an upcoming American computer-animated comedy film starring Jim Gaffigan, Zendaya and Carl Reiner.</result>
+<answer>Jim Gaffigan</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<answer>Tom Green</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<answer>Paul Dano</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>actor from Parks and Recreation and Legion who has worked with Jim Hosking</search>
+<result>[1] Peter Hosking (actor): Peter Hosking (born 19 December 1947) is an Australian actor and audiobook narrator.
+[2] Legion State Park: Legion State Park is public recreation area located on the north edge of the city of Louisville, Mississippi, and adjacent to Tombigbee National Forest. As Legion State Park Historic District, the state park entered the National Register of Historic Places in 1998. It is managed by the Mississippi Department of Wildlife, Fisheries and Parks.
+[3] Jim O'Heir: James O'Heir (born February 4, 1962) is an American actor and comedian best known for co-starring as Jerry Gergich on the NBC sitcom "Parks and Recreation".</result>
+<answer>Jim O'Heir</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>actor from Parks and Recreation and Legion who has a role in a film directed by Jim Hosking</search>
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] Jim Hanks: Jim Hanks (born June 15, 1961) is an American actor, voice actor and filmmaker. He has played numerous minor roles in film and guest appearances on television, and often substitutes doing voice work for his older brother Tom Hanks. He has produced, directed, and filmed several short films.</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking films</search>
+
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] An Evening with Beverly Luff Linn: An Evening with Beverly Luff Linn is an upcoming American comedy film directed by Jim Hosking. It stars Aubrey Plaza, Jemaine Clement and Emile Hirsch.</result>
+<answer>Abdoulaye NGom</answer>
+------------------------------------------------------------

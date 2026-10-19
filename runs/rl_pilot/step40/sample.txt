@@ -1,0 +1,24 @@
+Q: What college founded in 1932 as a women's college was attended by Susannah Waters? | gold: Bennington College | lam=0.2
+<answer>University of California, Berkeley</answer>
+------------------------------------------------------------
+Q: What college founded in 1932 as a women's college was attended by Susannah Waters? | gold: Bennington College | lam=0.2
+<answer>University of Michigan</answer>
+------------------------------------------------------------
+Q: What college founded in 1932 as a women's college was attended by Susannah Waters? | gold: Bennington College | lam=0.2
+<answer>University of Michigan</answer>
+------------------------------------------------------------
+Q: What college founded in 1932 as a women's college was attended by Susannah Waters? | gold: Bennington College | lam=0.2
+<answer>University of Michigan</answer>
+------------------------------------------------------------
+Q: What college founded in 1932 as a women's college was attended by Susannah Waters? | gold: Bennington College | lam=0.2
+<answer>University of Michigan</answer>
+------------------------------------------------------------
+Q: What college founded in 1932 as a women's college was attended by Susannah Waters? | gold: Bennington College | lam=0.2
+<answer>University of California, Berkeley</answer>
+------------------------------------------------------------
+Q: What college founded in 1932 as a women's college was attended by Susannah Waters? | gold: Bennington College | lam=0.2
+<answer>University of Michigan</answer>
+------------------------------------------------------------
+Q: What college founded in 1932 as a women's college was attended by Susannah Waters? | gold: Bennington College | lam=0.2
+<answer>University of Michigan</answer>
+------------------------------------------------------------

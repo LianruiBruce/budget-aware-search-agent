@@ -1,0 +1,72 @@
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<answer>Kevin James</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking</search>
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] Hosking: Hosking is a surname. Notable people with the surname include:</result>
+<search>Michael St. Michaels</search>
+
+<result>[1] St. Michael's School: St. Michael's School or St. Michael School may refer to:
+[2] Fort St. Michael (disambiguation): Fort St. Michael was a US Army installation in St. Michael, Alaska.
+[3] SM St. Michael, Penampang: St. Michael's Secondary School, Penampang ("Malay: Sekolah Menengah St. Michael (SMSM), Penampang") commonly known as SM St. Michael is a secondary school in Penampang, Sabah, Malaysia. It was named after Saint Michael the Archangel.</result>
+<search>Legion</search>
+
+
+<result>[1] Third Legion: The Third Legion can refer any of these Roman Legions:
+[2] Danube Legion: The Danube Legion (Polish: "Legia Naddunajska" ; or the Rhine Legion - French: "Legion du Rhine" ) was a unit of Poles in the service of Napoleonic France. It was also known as the 3rd Polish Legion.
+[3] Legion of Light Troops: The Legion of Light Troops, also known as the Light Legion or Legion of Alorna was military unit in the Portuguese Army, created in August 1796.</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<answer>John Mulaney</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<answer>Kevin Costner</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>actor from Parks and Recreation and Legion who stars in a film directed by Jim Hosking</search>
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] An Evening with Beverly Luff Linn: An Evening with Beverly Luff Linn is an upcoming American comedy film directed by Jim Hosking. It stars Aubrey Plaza, Jemaine Clement and Emile Hirsch.
+[3] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.</result>
+<search>actor from Parks and Recreation and Legion who stars in a film directed by Jim Hosking and is also in An Evening with Beverly Luff Linn</search>
+
+<result>[1] An Evening with Beverly Luff Linn: An Evening with Beverly Luff Linn is an upcoming American comedy film directed by Jim Hosking. It stars Aubrey Plaza, Jemaine Clement and Emile Hirsch.
+[2] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[3] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.</result>
+<answer>Abdoulaye NGom</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking</search>
+
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] Hosking: Hosking is a surname. Notable people with the surname include:</result>
+<search>Michael St. Michaels</search>
+
+<result>[1] St. Michael's School: St. Michael's School or St. Michael School may refer to:
+[2] Fort St. Michael (disambiguation): Fort St. Michael was a US Army installation in St. Michael, Alaska.
+[3] SM St. Michael, Penampang: St. Michael's Secondary School, Penampang ("Malay: Sekolah Menengah St. Michael (SMSM), Penampang") commonly known as SM St. Michael is a secondary school in Penampang, Sabah, Malaysia. It was named after Saint Michael the Archangel.</result>
+<search>Legion</search>
+
+
+<result>[1] Third Legion: The Third Legion can refer any of these Roman Legions:
+[2] Danube Legion: The Danube Legion (Polish: "Legia Naddunajska" ; or the Rhine Legion - French: "Legion du Rhine" ) was a unit of Poles in the service of Napoleonic France. It was also known as the 3rd Polish Legion.
+[3] Legion of Light Troops: The Legion of Light Troops, also known as the Light Legion or Legion of Alorna was military unit in the Portuguese Army, created in August 1796.</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Actor from Parks and Recreation and Legion who starred in a film directed by Jim Hosking</search>
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] An Evening with Beverly Luff Linn: An Evening with Beverly Luff Linn is an upcoming American comedy film directed by Jim Hosking. It stars Aubrey Plaza, Jemaine Clement and Emile Hirsch.
+[3] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.</result>
+<answer>Abdoulaye NGom</answer>
+------------------------------------------------------------
+Q: Which "Parks and Recreation" and "Legion" actor will star in an upcoming American comedy film directed by Jim Hosking? | gold: Aubrey Plaza | lam=0.0
+<search>Jim Hosking</search>
+<result>[1] The Greasy Strangler: The Greasy Strangler is a 2016 American black comedy horror film directed by Jim Hosking and written by Jim Hosking and Toby Harvard. The film stars Michael St. Michaels, Sky Elobar, Elizabeth De Razzo, Gil Gex, Abdoulaye NGom and Holland MacFallister. The film was released on October 7, 2016, by FilmRise.
+[2] Jim Hosking: Jim Hosking is a British film director. His first short film, "Little Clumps Of Hair", premiered on BBC3. His short film "Renegades" premiered at the Sundance Film Festival in 2010. He directed the segment "G is for Grandad" for the film "ABCs of Death 2" in 2014. His first feature film "The Greasy Strangler" premiered at the Sundance Film Festival on 22 January 2016.
+[3] Hosking: Hosking is a surname. Notable people with the surname include:</result>
+<answer>Michael St. Michaels</answer>
+------------------------------------------------------------
