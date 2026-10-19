@@ -1,0 +1,4 @@
+{"method": "no_search", "adapter": null, "corpus": "wiki", "n": 200, "max_calls": 3, "lam": 0.0, "em": 0.065, "f1": 0.12107295482295484, "searches": 0.0, "utility": 0.12107295482295484, "no_answer": 0.0}
+{"method": "react", "adapter": null, "corpus": "wiki", "n": 200, "max_calls": 3, "lam": 0.0, "em": 0.165, "f1": 0.25789069264069264, "searches": 1.185, "utility": 0.25789069264069264, "no_answer": 0.015}
+{"method": "react", "adapter": null, "corpus": "wiki", "n": 200, "max_calls": 3, "lam": 0.1, "em": 0.15, "f1": 0.24607659007659002, "searches": 1.265, "utility": 0.11957659007659002, "no_answer": 0.015}
+{"method": "react", "adapter": null, "corpus": "wiki", "n": 200, "max_calls": 3, "lam": 0.3, "em": 0.16, "f1": 0.2570213952713952, "searches": 1.255, "utility": -0.11947860472860472, "no_answer": 0.01}

@@ -13,7 +13,7 @@ import random
 import time
 
 import torch
-from peft import LoraConfig, get_peft_model
+from peft import LoraConfig, PeftModel, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from .data import build
@@ -93,6 +93,12 @@ def main():
                     help="rollouts per group forced to answer without searching")
     ap.add_argument("--force_search", type=int, default=1,
                     help="rollouts per group forced to search a second time")
+    ap.add_argument("--init_adapter", default=None,
+                    help="SFT adapter merged into the weights before RL; it also becomes the "
+                         "KL reference, since the reference is the model with the RL adapter off")
+    ap.add_argument("--corpus", default="small", choices=["small", "wiki"])
+    ap.add_argument("--q_start", type=int, default=0,
+                    help="use training questions from this index on (skip SFT / diagnostic ones)")
     args = ap.parse_args()
 
     random.seed(args.seed)
@@ -101,10 +107,17 @@ def main():
     lams = [float(x) for x in args.lams.split(",")]
 
     train, _, corpus = build()
-    retriever = BM25Retriever(corpus)
+    train = train[args.q_start:]
+    if args.corpus == "wiki":
+        from .wiki import load_wiki_retriever
+        retriever = load_wiki_retriever()
+    else:
+        retriever = BM25Retriever(corpus)
     tok = AutoTokenizer.from_pretrained(args.model)
     model = AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16,
                                                  attn_implementation="sdpa").cuda()
+    if args.init_adapter:
+        model = PeftModel.from_pretrained(model, args.init_adapter).merge_and_unload()
     model = get_peft_model(model, LoraConfig(
         r=args.lora_r, lora_alpha=2 * args.lora_r, lora_dropout=0.0, task_type="CAUSAL_LM",
         target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]))

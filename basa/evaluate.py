@@ -41,12 +41,17 @@ def main():
     ap.add_argument("--lams", default="0,0.05,0.1,0.2,0.3")
     ap.add_argument("--n", type=int, default=500)
     ap.add_argument("--max_calls", type=int, default=4)
+    ap.add_argument("--corpus", default="small", choices=["small", "wiki"])
     ap.add_argument("--out", default="results/eval.jsonl")
     args = ap.parse_args()
 
     _, dev, corpus = build()
     dev = dev[:args.n]
-    ret = BM25Retriever(corpus)
+    if args.corpus == "wiki":
+        from .wiki import load_wiki_retriever
+        ret = load_wiki_retriever()
+    else:
+        ret = BM25Retriever(corpus)
     tok = AutoTokenizer.from_pretrained(args.model)
     model = AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16).cuda().eval()
     if args.adapter:
@@ -56,7 +61,8 @@ def main():
     f = open(args.out, "a", encoding="utf-8")
 
     def emit(method, rec):
-        rec = {"method": method, "adapter": args.adapter, **rec}
+        rec = {"method": method, "adapter": args.adapter, "corpus": args.corpus, "n": len(dev),
+               "max_calls": args.max_calls, **rec}
         print(json.dumps(rec), flush=True)
         f.write(json.dumps(rec) + "\n")
         f.flush()
