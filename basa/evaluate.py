@@ -2,7 +2,8 @@
 
 Methods
   no_search   the agent may not search (max_calls=0): closed-book answer
-  rag1        one retrieval with the question as query, results given up front
+  rag1        one search with the question as query is done for the agent up front;
+              it may not search again
   react       the untrained model with the agent prompt (prompted ReAct-style tool use)
   trained     the GRPO adapter with the same prompt
 
@@ -20,7 +21,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from .data import build
 from .retriever import BM25Retriever
 from .reward import exact_match, f1_score
-from .rollout import ANSWER_RE, _generate, rollout
+from .rollout import rollout
 
 
 def summarize(eps, lam):
@@ -30,26 +31,6 @@ def summarize(eps, lam):
     s = sum(e.n_search for e in eps) / n
     return {"lam": lam, "em": em, "f1": f1, "searches": s, "utility": f1 - lam * s,
             "no_answer": sum(e.answer is None for e in eps) / n}
-
-
-def rag1(model, tok, ret, dev, batch=32):
-    out = []
-    for b in range(0, len(dev), batch):
-        chunk = dev[b:b + batch]
-        seqs = []
-        for q in chunk:
-            msgs = [{"role": "system", "content": "Answer the question using the passages. "
-                     "Write <answer>short answer</answer>."},
-                    {"role": "user", "content": f"Passages:\n{ret.format(q['question'])}\n\n"
-                     f"Question: {q['question']}"}]
-            text = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True,
-                                           enable_thinking=False)
-            seqs.append(tok(text, add_special_tokens=False).input_ids)
-        for q, g in zip(chunk, _generate(model, tok, seqs, 64, 1.0, True)):
-            m = ANSWER_RE.search(tok.decode(g, skip_special_tokens=True))
-            out.append(type("E", (), {"q": q, "answer": m.group(1).strip() if m else None,
-                                      "n_search": 1})())
-    return out
 
 
 def main():
@@ -85,7 +66,9 @@ def main():
             eps = rollout(model, tok, ret, dev, [0.0] * len(dev), max_calls=0, greedy=True)
             emit(method, summarize(eps, 0.0))
         elif method == "rag1":
-            emit(method, summarize(rag1(model, tok, ret, dev), 0.0))
+            eps = rollout(model, tok, ret, dev, [0.0] * len(dev), max_calls=1, greedy=True,
+                          prefill_search=True)
+            emit(method, summarize(eps, 0.0))
         else:  # react (base) or trained (adapter): the agent prompt at each cost
             for lam in lams:
                 eps = rollout(model, tok, ret, dev, [lam] * len(dev), max_calls=args.max_calls,

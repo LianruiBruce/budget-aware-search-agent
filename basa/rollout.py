@@ -26,6 +26,9 @@ class Episode:
     answer: str = None
     done: bool = False
     transcript: list = field(default_factory=list)
+    force: str = None   # None | "answer" | "search"  (training-time exploration)
+    turn: int = 0
+    prefix: str = ""    # forced action opener for the current turn
 
 
 def _prompt_ids(tok, question, lam, max_calls):
@@ -61,17 +64,41 @@ def _generate(model, tok, seqs, max_new_tokens, temperature, greedy):
 
 
 def rollout(model, tok, retriever, questions, lams, max_calls=4, max_new_tokens=200,
-            temperature=1.0, greedy=False, max_ctx=3072, batch_size=24):
+            temperature=1.0, greedy=False, max_ctx=3072, batch_size=24, prefill_search=False,
+            forces=None):
+    """prefill_search: start every episode with one search for the raw question
+    already done (the rag1 baseline), counted against the budget.
+
+    forces: optional per-episode forced branch for exploration during training.
+      "answer"  the first turn opens with <answer> (answer without searching)
+      "search"  the turn after the first result opens with <search> (search again)
+    The opener tokens are kept with mask 1, i.e. trained on as an (off-policy)
+    action, so the search-or-answer decision itself receives the advantage."""
     eps = []
-    for q, lam in zip(questions, lams):
+    for i, (q, lam) in enumerate(zip(questions, lams)):
         ids = _prompt_ids(tok, q["question"], lam, max_calls)
-        eps.append(Episode(q=q, lam=lam, ids=ids, mask=[0] * len(ids)))
+        e = Episode(q=q, lam=lam, ids=ids, mask=[0] * len(ids),
+                    force=forces[i] if forces else None)
+        if prefill_search:
+            _inject(e, tok, f"<search>{q['question']}</search>\n<result>\n"
+                            f"{retriever.format(q['question'])}\n</result>\n")
+            e.n_search = 1
+        eps.append(e)
 
     eos = {tok.eos_token_id, tok.convert_tokens_to_ids("<|im_end|>")}
-    for _ in range(max_calls + 1):
+    # one turn per allowed search, plus one to answer after the budget runs out
+    for _ in range(max_calls + 2):
         active = [e for e in eps if not e.done]
         if not active:
             break
+        for e in active:
+            e.prefix = ""
+            if (e.force == "answer" and e.turn == 0) or                (e.force == "search" and e.turn == 1 and e.n_search == 1):
+                e.prefix = "<answer>" if e.force == "answer" else "<search>"
+                t = tok(e.prefix, add_special_tokens=False).input_ids
+                e.ids += t
+                e.mask += [1] * len(t)
+            e.turn += 1
         for b in range(0, len(active), batch_size):
             chunk = active[b:b + batch_size]
             gens = _generate(model, tok, [e.ids for e in chunk], max_new_tokens, temperature, greedy)
@@ -93,7 +120,7 @@ def _inject(e, tok, text):
 def _step(e, gen, tok, retriever, max_calls, eos):
     e.ids += gen
     e.mask += [1] * len(gen)
-    text = tok.decode(gen, skip_special_tokens=True)
+    text = e.prefix + tok.decode(gen, skip_special_tokens=True)
     e.transcript.append(text)
 
     m = ANSWER_RE.search(text)

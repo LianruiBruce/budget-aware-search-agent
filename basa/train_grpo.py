@@ -37,12 +37,17 @@ def seq_logprobs(model, ids, attn, chunk=512):
     return torch.cat(out, 1)
 
 
-def policy_loss(model, eps, advs, pad_id, device, micro=1):
+def policy_loss(model, eps, advs, pad_id, device, micro=1, kl_coef=0.0):
     """Sum of -A * log pi over generated tokens, normalized by the total number
     of generated tokens in the batch (a constant, so long and short episodes
-    are weighted per token, not per episode)."""
+    are weighted per token, not per episode).
+
+    kl_coef > 0 adds a per-token KL penalty to the frozen base model (the same
+    network with the LoRA adapter disabled), using the k3 estimator
+    exp(ref - lp) - (ref - lp) - 1. Without it the policy collapses to one
+    fixed search count within a few steps and stops exploring."""
     n_tok = sum(sum(e.mask) for e in eps)
-    total = 0.0
+    total, kl_total = 0.0, 0.0
     for b in range(0, len(eps), micro):
         chunk, a = eps[b:b + micro], advs[b:b + micro]
         width = max(len(e.ids) for e in chunk)
@@ -56,10 +61,18 @@ def policy_loss(model, eps, advs, pad_id, device, micro=1):
         ids, attn, mask = ids.to(device), attn.to(device), mask.to(device)
         lp = seq_logprobs(model, ids, attn)
         adv = torch.tensor(a, dtype=torch.float, device=device)[:, None]
-        loss = -(adv * lp * mask[:, 1:]).sum() / n_tok
+        m = mask[:, 1:]
+        loss = -(adv * lp * m).sum() / n_tok
+        if kl_coef > 0:
+            with torch.no_grad(), model.disable_adapter():
+                ref = seq_logprobs(model, ids, attn)
+            d = ref - lp
+            kl = ((torch.exp(d) - d - 1) * m).sum() / n_tok
+            loss = loss + kl_coef * kl
+            kl_total += kl.item()
         loss.backward()
         total += loss.item()
-    return total
+    return total, kl_total
 
 
 def main():
@@ -68,13 +81,18 @@ def main():
     ap.add_argument("--steps", type=int, default=300)
     ap.add_argument("--q_per_step", type=int, default=4)
     ap.add_argument("--group", type=int, default=6)
-    ap.add_argument("--lr", type=float, default=5e-5)
+    ap.add_argument("--lr", type=float, default=1e-5)
     ap.add_argument("--lams", default="0,0.05,0.1,0.2,0.3")
     ap.add_argument("--max_calls", type=int, default=4)
     ap.add_argument("--lora_r", type=int, default=32)
     ap.add_argument("--out", default="runs/basa")
     ap.add_argument("--save_every", type=int, default=50)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--kl", type=float, default=0.05)
+    ap.add_argument("--force_answer", type=int, default=1,
+                    help="rollouts per group forced to answer without searching")
+    ap.add_argument("--force_search", type=int, default=1,
+                    help="rollouts per group forced to search a second time")
     args = ap.parse_args()
 
     random.seed(args.seed)
@@ -106,7 +124,10 @@ def main():
         model.eval()
         model.gradient_checkpointing_disable()
         model.config.use_cache = True
-        eps = rollout(model, tok, retriever, batch_q, batch_l, max_calls=args.max_calls)
+        group_forces = (["answer"] * args.force_answer + ["search"] * args.force_search
+                        + [None] * (args.group - args.force_answer - args.force_search))
+        eps = rollout(model, tok, retriever, batch_q, batch_l, max_calls=args.max_calls,
+                      forces=group_forces * args.q_per_step)
         rewards = [episode_reward(e.answer, e.q["answer"], e.n_search, e.lam) for e in eps]
 
         # group-normalized advantages; groups with no reward spread carry no signal
@@ -121,19 +142,22 @@ def main():
                 keep_eps.append(e)
                 advs.append((x - mu) / (sd + 1e-4))
 
-        loss = 0.0
+        loss, kl = 0.0, 0.0
         if keep_eps:
             model.train()
             model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
             model.config.use_cache = False
             opt.zero_grad(set_to_none=True)
-            loss = policy_loss(model, keep_eps, advs, tok.pad_token_id, model.device)
+            loss, kl = policy_loss(model, keep_eps, advs, tok.pad_token_id, model.device,
+                                   kl_coef=args.kl)
             torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], 1.0)
             opt.step()
 
         f1s = [f1_score(e.answer or "", e.q["answer"]) for e in eps]
         rec = {
-            "step": step, "loss": loss, "reward": sum(rewards) / len(rewards),
+            "step": step, "loss": loss, "kl": kl, "reward": sum(rewards) / len(rewards),
+            "search_hist": {str(k): sum(e.n_search == k for e in eps)
+                            for k in range(args.max_calls + 1)},
             "f1": sum(f1s) / len(f1s),
             "searches": sum(e.n_search for e in eps) / len(eps),
             "no_answer": sum(e.answer is None for e in eps) / len(eps),
@@ -147,7 +171,8 @@ def main():
         log.write(json.dumps(rec) + "\n")
         log.flush()
         print(f"step {step} reward {rec['reward']:.3f} f1 {rec['f1']:.3f} "
-              f"searches {rec['searches']:.2f} no_ans {rec['no_answer']:.2f} "
+              f"searches {rec['searches']:.2f} hist {rec['search_hist']} kl {kl:.4f} "
+              f"no_ans {rec['no_answer']:.2f} "
               f"kept {rec['kept_groups']} {rec['sec']}s", flush=True)
         if step % args.save_every == 0 or step == args.steps:
             model.save_pretrained(os.path.join(args.out, f"step{step}"))
