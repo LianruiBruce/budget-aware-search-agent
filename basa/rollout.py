@@ -107,6 +107,10 @@ def rollout(model, tok, retriever, questions, lams, max_calls=4, max_new_tokens=
         for b in range(0, len(active), batch_size):
             chunk = active[b:b + batch_size]
             gens = _generate(model, tok, [e.ids for e in chunk], max_new_tokens, temperature, greedy)
+            if hasattr(retriever, "prefetch"):  # batch this step's searches into one call
+                texts = [e.prefix + tok.decode(g, skip_special_tokens=True) for e, g in zip(chunk, gens)]
+                retriever.prefetch([m.group(1).strip() for t in texts
+                                    if not ANSWER_RE.search(t) and (m := SEARCH_RE.search(t))])
             for e, g in zip(chunk, gens):
                 _step(e, g, tok, retriever, max_calls, eos)
                 if len(e.ids) > max_ctx and not e.done:

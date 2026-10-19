@@ -62,14 +62,14 @@ def build_index(corpus):
 class PrebuiltBM25Retriever(BM25Retriever):
     """BM25Retriever over an index that was built and saved ahead of time."""
 
-    def __init__(self, corpus, index, k=3, max_chars=400):
-        self.corpus, self.k, self.max_chars = corpus, k, max_chars
+    def __init__(self, corpus, index, k=3, max_chars=400, n_threads=16):
+        self.corpus, self.k, self.max_chars, self.n_threads = corpus, k, max_chars, n_threads
         self.stemmer = Stemmer.Stemmer("english")
         self.index = index
 
 
 def load_wiki_retriever(k=3):
-    return PrebuiltBM25Retriever(load_corpus(), bm25s.BM25.load(INDEX, mmap=True), k=k)
+    return PrebuiltBM25Retriever(load_corpus(), bm25s.BM25.load(INDEX, mmap=False), k=k)
 
 
 if __name__ == "__main__":
